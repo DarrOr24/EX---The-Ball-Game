@@ -31,11 +31,20 @@ function onBallClick(elBall, maxDiameter, elBallClass){
 
     
     if (elBallClass === 'ball1'){
-        changeBall1(elBall, rndColor, incrementSize, maxDiameter)
+        gBall1Diameter += incrementSize
+        gBall1Color = rndColor
+        if(gBall1Diameter > maxDiameter) gBall1Diameter = 100
+        changeBall(elBall, rndColor, gBall1Diameter)
         return
     }
-
-    changeBall2(elBall, rndColor, incrementSize, maxDiameter)
+    if (elBallClass === 'ball2'){
+        gBall2Diameter += incrementSize
+        gBall2Color = rndColor
+        if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
+        changeBall(elBall, rndColor, gBall2Diameter)
+        return
+    }
+   
 }
 
 function swapColors(){
@@ -62,28 +71,15 @@ function swapColors(){
     gBall2Diameter = ball1Diameter
 }
 
-function changeBall1(elBall, ballColor, incrementSize, maxDiameter){
-   
-    gBall1Diameter += incrementSize
-    if(gBall1Diameter > maxDiameter) gBall1Diameter = 100
-    elBall.style.height = `${gBall1Diameter}px`
-    elBall.style.width = `${gBall1Diameter}px`
-    elBall.innerHTML=`${gBall1Diameter}`
-    elBall.style.backgroundColor = `${ballColor}`
 
-    gBall1Color = ballColor
+function changeBall(elBall, ballColor, diameter){
     
-}
-
-function changeBall2(elBall, ballColor, incrementSize, maxDiameter){
-    gBall2Diameter += incrementSize
-    if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
-    elBall.style.height = `${gBall2Diameter}px`
-    elBall.style.width = `${gBall2Diameter}px`
-    elBall.innerHTML=`${gBall2Diameter}`
-    gBall2Color = ballColor
+    elBall.style.height = `${diameter}px`
+    elBall.style.width = `${diameter}px`
+    elBall.innerHTML=`${diameter}`
     elBall.style.backgroundColor = `${ballColor}`
 }
+
 
 function reduceBalls1And2(incrementSize){
     gBall1Diameter -= incrementSize
@@ -114,15 +110,9 @@ function reset(){
     elBody.style.backgroundColor = 'black'
 
     const elBall1 = document.querySelector('.ball1')
-    elBall1.style.height = `${gBall1Diameter}px`
-    elBall1.style.width = `${gBall1Diameter}px`
-    elBall1.innerHTML=`${gBall1Diameter}`
-    elBall1.style.backgroundColor = `${gBall1Color}`
+    changeBall(elBall1, gBall1Color, gBall1Diameter)
 
     const elBall2 = document.querySelector('.ball2')
-    elBall2.style.height = `${gBall2Diameter}px`
-    elBall2.style.width = `${gBall2Diameter}px`
-    elBall2.innerHTML=`${gBall2Diameter}`
-    elBall2.style.backgroundColor = `${gBall2Color}`
+    changeBall(elBall2, gBall2Color, gBall2Diameter)
 }
 
