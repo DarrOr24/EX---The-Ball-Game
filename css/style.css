@@ -7,23 +7,6 @@ h1 {
 }
 
 .ball {
-    display: grid;
-    place-items: center;
-
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: bisque;
-    
-    font-size: 22px;
-    font-weight: bold;
-
-    transition: 1s;
-    
- 
-}
-
-.ball2 {
     margin-block-start: 20px;
     display: grid;
     place-items: center;
@@ -31,12 +14,21 @@ h1 {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgb(136, 225, 237);
     
     font-size: 22px;
     font-weight: bold;
-
     transition: 1s;
-    
- 
+}
+
+.ball1{
+    background-color: bisque;
+}
+
+.ball2 {
+    background-color: rgb(136, 225, 237);
+
+}
+
+.ball3 {
+    background-color: rgb(203, 113, 163); 
 }
