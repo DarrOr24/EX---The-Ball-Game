@@ -8,9 +8,16 @@ var gBall2Color = 'rgb(136, 225, 237)'
 
 function onBallClick(elBall, maxDiameter, elBallClass){
 
-    const ballColor = getRandomColor()
+    const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
     
+    if(elBallClass === 'ball5'){
+        
+        const elBody = document.querySelector('body')
+        elBody.style.backgroundColor = `${rndColor}`
+        
+        return
+    }
     if(elBallClass === 'ball4'){
         
         reduceBalls1And2(incrementSize)
@@ -24,11 +31,11 @@ function onBallClick(elBall, maxDiameter, elBallClass){
 
     
     if (elBallClass === 'ball1'){
-        changeBall1(elBall, ballColor, incrementSize, maxDiameter)
+        changeBall1(elBall, rndColor, incrementSize, maxDiameter)
         return
     }
 
-    changeBall2(elBall, ballColor, incrementSize, maxDiameter)
+    changeBall2(elBall, rndColor, incrementSize, maxDiameter)
 }
 
 function swapColors(){
