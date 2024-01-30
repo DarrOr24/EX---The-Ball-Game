@@ -22,15 +22,6 @@ function onBallClick(elBall, maxDiameter, elBallClass){
     }
 
     changeBall2(elBall, ballColor, incrementSize, maxDiameter)
-
-    // gBall2Diameter += incrementSize
-    // if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
-    // elBall.style.height = `${gBall2Diameter}px`
-    // elBall.style.width = `${gBall2Diameter}px`
-    // elBall.innerHTML=`${gBall2Diameter}`
-    // gBall2Color = ballColor
-    // elBall.style.backgroundColor = `${ballColor}`
-
 }
 
 function swapColors(){
