@@ -4,6 +4,7 @@ var gBall1Diameter = 100
 var gBall2Diameter = 100
 var gBall1Color = 'bisque'
 var gBall2Color = 'rgb(136, 225, 237)'
+var gInterval
 
 function onBallClick(elBall, maxDiameter, elBallClass){
 
@@ -105,4 +106,32 @@ function reset(){
     const elBall2 = document.querySelector('.ball2')
     changeBall(elBall2, gBall2Color, gBall2Diameter)
 }
+
+function mousePos(event){
+    console.log(event.timeStamp)
+    
+    // gTimeStart = event.timeStamp
+
+    const elBall1 = document.querySelector('.ball1')
+    const elBall2 = document.querySelector('.ball2')
+    const elBall3 = document.querySelector('.ball3')
+    const elBall4 = document.querySelector('.ball4')
+
+    const startTime = new Date().getTime()
+
+    gInterval = setInterval(() => {
+        onBallClick(elBall1, 400, 'ball1')
+        onBallClick(elBall2, 500, 'ball2')
+        onBallClick(elBall3, 100, 'ball3')
+        onBallClick(elBall4, 100, 'ball4')
+
+        var currTime = new Date().getTime()
+        if(currTime - startTime >= 10000) clearInterval(gInterval)
+    
+    }, 2000)
+
+    
+}
+
+
 
