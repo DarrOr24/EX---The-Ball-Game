@@ -25,7 +25,7 @@ function onBallClick(elBall, maxDiameter, elBallClass){
     }
 
     if (elBallClass === 'ball3'){
-        swapColors()
+        swapBalls()
         return
     }
 
@@ -47,24 +47,19 @@ function onBallClick(elBall, maxDiameter, elBallClass){
    
 }
 
-function swapColors(){
+function swapBalls(){
+    
+    const elBall1 = document.querySelector('.ball1')
+    changeBall(elBall1, gBall2Color, gBall2Diameter)
+    
+    const elBall2 = document.querySelector('.ball2')
+    changeBall(elBall2, gBall1Color, gBall1Diameter)
+    
     const ball2Color = gBall2Color
     const ball1Color = gBall1Color
     const ball2Diameter = gBall2Diameter
     const ball1Diameter = gBall1Diameter
-
-    const elBall1 = document.querySelector('.ball1')
-    elBall1.style.height = `${gBall2Diameter}px`
-    elBall1.style.width = `${gBall2Diameter}px`
-    elBall1.innerHTML=`${gBall2Diameter}`
-    elBall1.style.backgroundColor = `${gBall2Color}`
-
-    const elBall2 = document.querySelector('.ball2')
-    elBall2.style.height = `${gBall1Diameter}px`
-    elBall2.style.width = `${gBall1Diameter}px`
-    elBall2.innerHTML=`${gBall1Diameter}`
-    elBall2.style.backgroundColor = `${gBall1Color}`
-
+    
     gBall1Color = ball2Color
     gBall2Color = ball1Color
     gBall1Diameter = ball2Diameter
