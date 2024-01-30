@@ -2,13 +2,39 @@
 
 var gBall1Diameter = 100
 var gBall2Diameter = 100
+var gBall1Diameter = 100
 var gBall1Color = 'bisque'
 var gBall2Color = 'rgb(136, 225, 237)'
 
 function onBallClick(elBall, maxDiameter, elBallClass){
 
     if (elBallClass === 'ball3'){
-        const ball2Color = gBall2Color
+        swapColors()
+        return
+    }
+
+    var ballColor = getRandomColor()
+    var incrementSize = getRandomInt(20, 61)
+    
+    if (elBallClass === 'ball1'){
+        changeBall1(elBall, ballColor, incrementSize, maxDiameter)
+        return
+    }
+
+    changeBall2(elBall, ballColor, incrementSize, maxDiameter)
+
+    // gBall2Diameter += incrementSize
+    // if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
+    // elBall.style.height = `${gBall2Diameter}px`
+    // elBall.style.width = `${gBall2Diameter}px`
+    // elBall.innerHTML=`${gBall2Diameter}`
+    // gBall2Color = ballColor
+    // elBall.style.backgroundColor = `${ballColor}`
+
+}
+
+function swapColors(){
+    const ball2Color = gBall2Color
         const ball1Color = gBall1Color
         const ball2Diameter = gBall2Diameter
         const ball1Diameter = gBall1Diameter
@@ -29,26 +55,22 @@ function onBallClick(elBall, maxDiameter, elBallClass){
         gBall2Color = ball1Color
         gBall1Diameter = ball2Diameter
         gBall2Diameter = ball1Diameter
+}
 
-        return
-    }
+function changeBall1(elBall, ballColor, incrementSize, maxDiameter){
+   
+    gBall1Diameter += incrementSize
+    if(gBall1Diameter > maxDiameter) gBall1Diameter = 100
+    elBall.style.height = `${gBall1Diameter}px`
+    elBall.style.width = `${gBall1Diameter}px`
+    elBall.innerHTML=`${gBall1Diameter}`
+    elBall.style.backgroundColor = `${ballColor}`
 
-    var ballColor = getRandomColor()
-    var incrementSize = getRandomInt(20, 61)
+    gBall1Color = ballColor
     
-    if (elBallClass === 'ball1'){
-        
-        gBall1Diameter += incrementSize
-        if(gBall1Diameter > maxDiameter) gBall1Diameter = 100
-        elBall.style.height = `${gBall1Diameter}px`
-        elBall.style.width = `${gBall1Diameter}px`
-        elBall.innerHTML=`${gBall1Diameter}`
+}
 
-        gBall1Color = ballColor
-        elBall.style.backgroundColor = `${ballColor}`
-        return
-    }
-
+function changeBall2(elBall, ballColor, incrementSize, maxDiameter){
     gBall2Diameter += incrementSize
     if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
     elBall.style.height = `${gBall2Diameter}px`
@@ -56,6 +78,5 @@ function onBallClick(elBall, maxDiameter, elBallClass){
     elBall.innerHTML=`${gBall2Diameter}`
     gBall2Color = ballColor
     elBall.style.backgroundColor = `${ballColor}`
-
 }
 
