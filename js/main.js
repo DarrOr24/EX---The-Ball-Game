@@ -1,10 +1,13 @@
 'use strict'
 
+var gBallDiameter = 100
+
 function onBallClick(elBall){
-    elBall.style.height = '150px'
-    elBall.style.width = '150px'
-    elBall.innerHTML='150px'
-    
+    gBallDiameter *= 1.5
    
+    elBall.style.height = `${gBallDiameter}px`
+    elBall.style.width = `${gBallDiameter}px`
+
+    elBall.innerHTML=`${gBallDiameter}`
 
 }
