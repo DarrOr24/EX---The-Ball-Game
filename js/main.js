@@ -104,6 +104,25 @@ function reduceBalls1And2(incrementSize){
 }
 
 function reset(){
-    console.log('reset')
+    gBall1Diameter = 100
+    gBall2Diameter = 100
+    gBall1Diameter = 100
+    gBall1Color = 'bisque'
+    gBall2Color = 'rgb(136, 225, 237)'
+
+    const elBody = document.querySelector('body')
+    elBody.style.backgroundColor = 'black'
+
+    const elBall1 = document.querySelector('.ball1')
+    elBall1.style.height = `${gBall1Diameter}px`
+    elBall1.style.width = `${gBall1Diameter}px`
+    elBall1.innerHTML=`${gBall1Diameter}`
+    elBall1.style.backgroundColor = `${gBall1Color}`
+
+    const elBall2 = document.querySelector('.ball2')
+    elBall2.style.height = `${gBall2Diameter}px`
+    elBall2.style.width = `${gBall2Diameter}px`
+    elBall2.innerHTML=`${gBall2Diameter}`
+    elBall2.style.backgroundColor = `${gBall2Color}`
 }
 
