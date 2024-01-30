@@ -22,3 +22,21 @@ h1 {
     
  
 }
+
+.ball2 {
+    margin-block-start: 20px;
+    display: grid;
+    place-items: center;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgb(136, 225, 237);
+    
+    font-size: 22px;
+    font-weight: bold;
+
+    transition: 1s;
+    
+ 
+}
