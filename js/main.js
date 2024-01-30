@@ -133,5 +133,9 @@ function mousePos(event){
     
 }
 
+function clearIntervalBalls(){
+    clearInterval(gInterval)
+}
+
 
 
