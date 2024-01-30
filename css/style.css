@@ -27,6 +27,11 @@ h1 {
     transition: 1s;
 }
 
+.ball:hover{
+    cursor: pointer;
+}
+
+
 .ball1{
     background-color: bisque;
 }
@@ -43,9 +48,12 @@ h1 {
 .ball4 {
     background-color: rgb(236, 230, 64); 
 }
+
 .ball5 {
     background-color: rgb(194, 212, 212); 
 }
+
 .ball6 {
-    background-color: rgb(201, 162, 194); 
+    background-color: rgb(201, 162, 194);
+ 
 }
