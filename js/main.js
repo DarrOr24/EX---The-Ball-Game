@@ -2,7 +2,6 @@
 
 var gBall1Diameter = 100
 var gBall2Diameter = 100
-var gBall1Diameter = 100
 var gBall1Color = 'bisque'
 var gBall2Color = 'rgb(136, 225, 237)'
 
