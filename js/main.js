@@ -84,14 +84,10 @@ function reduceBalls1And2(incrementSize){
     if(gBall1Diameter < 100) gBall1Diameter = 100
 
     const elBall1 = document.querySelector('.ball1')
-    elBall1.style.height = `${gBall1Diameter}px`
-    elBall1.style.width = `${gBall1Diameter}px`
-    elBall1.innerHTML=`${gBall1Diameter}`
+    changeBall(elBall1, gBall1Color, gBall1Diameter)
     
     const elBall2 = document.querySelector('.ball2')
-    elBall2.style.height = `${gBall2Diameter}px`
-    elBall2.style.width = `${gBall2Diameter}px`
-    elBall2.innerHTML=`${gBall2Diameter}`
+    changeBall(elBall2, gBall2Color, gBall2Diameter)
 }
 
 function reset(){
