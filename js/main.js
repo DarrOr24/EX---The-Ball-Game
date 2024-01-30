@@ -103,3 +103,7 @@ function reduceBalls1And2(incrementSize){
     elBall2.innerHTML=`${gBall2Diameter}`
 }
 
+function reset(){
+    console.log('reset')
+}
+
