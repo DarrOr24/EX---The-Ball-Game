@@ -6,7 +6,10 @@ body {
 
 header {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:"h1 . . move timer-title"
+                        "h1 undo redo counter timer";
     place-items: center;
     place-content: center;
 }
@@ -15,7 +18,37 @@ button:hover{
     cursor: pointer;
 }
 
+.undoBtn{
+    grid-area:undo;
+}
+
+.redoBtn{
+    grid-area:redo;
+}
+
 .counter{
+    grid-area:counter;
+}
+
+.timer{
+    grid-area:timer;
+}
+
+.counter-title, .timer-title{
+    background-color:bisque;
+    border-radius: 10%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.counter-title{
+    grid-area:move;
+}
+.timer-title{
+    grid-area:timer-title;
+}
+
+.counter, .timer{
     background-color:bisque;
     border-radius: 10%;
     width: 20px;
@@ -30,6 +63,7 @@ button:hover{
 }
 
 h1 {
+    grid-area: h1;
     color: white;
 }
 
