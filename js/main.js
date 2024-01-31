@@ -66,8 +66,7 @@ function onBallClick(elBall, maxDiameter, elBallClass){
         changeBall(elBall, rndColor, gBall2Diameter)
     }
 
-    gCurr = storeSettings()
-    console.log('gCurr:', gCurr)
+    storeSettings()  
 }
 
 function swapBalls(){
@@ -128,8 +127,6 @@ function reset(){
     if(!elRedoBtn.classList.contains('hide'))elRedoBtn.classList.add('hide')
 
 
-    gPrevious = storeSettings()
-    
     gBall1Diameter = 100
     gBall2Diameter = 100
     gBall1Diameter = 100
@@ -137,7 +134,15 @@ function reset(){
     gBall2Color = 'rgb(136, 225, 237)'
     gBackgroundColor = 'black'
 
-    gCurr = storeSettings()
+    gHistory = {
+        move: [0],
+        ball1Diameter: [100],
+        ball2Diameter: [100],
+        ball1Color: ['bisque'],
+        ball2Color: ['rgb(136, 225, 237)'],
+        backgroundColor: ['black'],
+    }
+
 
     changeBackgroundColor(gBackgroundColor)
 
