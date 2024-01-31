@@ -1,11 +1,12 @@
 body {
     background-color: black;
     text-align: center;
+    font-family: monospace;
 }
 
 header {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
     place-items: center;
     place-content: center;
 }
@@ -14,8 +15,12 @@ button:hover{
     cursor: pointer;
 }
 
-.hide{
-    display:none;
+.counter{
+    background-color:bisque;
+    border-radius: 10%;
+    width: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .grid-container{
