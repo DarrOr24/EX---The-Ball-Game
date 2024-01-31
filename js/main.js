@@ -142,7 +142,7 @@ function reset(){
         backgroundColor: ['black'],
     }
 
-
+  
     changeBackgroundColor(gBackgroundColor)
 
     const elBall1 = document.querySelector('.ball1')
@@ -189,18 +189,14 @@ function clearIntervalBalls(){
 }
 
 function undo(){
-
     if(gMove === 0) return
     gMove--
-
     changeAll()
-
 }
 
 function redo(){
     if(gMove === gHistory.move.length - 1) return
     gMove++
-
     changeAll()
 }
 
