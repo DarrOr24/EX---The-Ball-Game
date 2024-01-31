@@ -13,7 +13,7 @@ var gCurr = {}
 function storeSettings(){
     return {
         ball1Diameter: gBall1Diameter,
-        ball2Diameter: gBall1Diameter,
+        ball2Diameter: gBall2Diameter,
         ball1Color: gBall1Color,
         ball2Color: gBall2Color,
         backgroundColor: gBackgroundColor,
@@ -23,44 +23,41 @@ function storeSettings(){
 function onBallClick(elBall, maxDiameter, elBallClass){
 
     gPrevious = storeSettings()
+    console.log('gPrevious:', gPrevious)
 
     const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
     
     if(elBallClass === 'ball5'){
-        
         const elBody = document.querySelector('body')
         elBody.style.backgroundColor = `${rndColor}`
         gBackgroundColor = rndColor
-        
-        return
     }
+
     if(elBallClass === 'ball4'){
-        
         reduceBalls1And2(incrementSize)
-        return
     }
 
     if (elBallClass === 'ball3'){
         swapBalls()
-        return
     }
 
-    
     if (elBallClass === 'ball1'){
         gBall1Diameter += incrementSize
         gBall1Color = rndColor
         if(gBall1Diameter > maxDiameter) gBall1Diameter = 100
         changeBall(elBall, rndColor, gBall1Diameter)
-        return
     }
+
     if (elBallClass === 'ball2'){
         gBall2Diameter += incrementSize
         gBall2Color = rndColor
         if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
         changeBall(elBall, rndColor, gBall2Diameter)
-        return
     }
+
+    gCurr = storeSettings()
+    console.log('gCurr:', gCurr)
    
 }
 
@@ -108,12 +105,16 @@ function reduceBalls1And2(incrementSize){
 }
 
 function reset(){
+    gPrevious = storeSettings()
+    
     gBall1Diameter = 100
     gBall2Diameter = 100
     gBall1Diameter = 100
     gBall1Color = 'bisque'
     gBall2Color = 'rgb(136, 225, 237)'
     gBackgroundColor = 'black'
+
+    gCurr = storeSettings()
 
     const elBody = document.querySelector('body')
     elBody.style.backgroundColor = gBackgroundColor
