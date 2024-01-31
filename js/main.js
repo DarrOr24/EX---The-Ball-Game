@@ -7,6 +7,7 @@ var gBall2Color = 'rgb(136, 225, 237)'
 var gBackgroundColor = 'black'
 var gInterval = 0
 var gMove = 0
+var gTimerInterval = 0
 var gHistory = {
     move: [0],
     ball1Diameter: [100],
@@ -207,6 +208,21 @@ function changeAll(){
 function setCounter(){
     const elCounter = document.querySelector('.counter')
     elCounter.innerHTML= `${gMove}`
+}
+
+function setTimer(){
+    const elTimer = document.querySelector('.timer')
+    const startTime = new Date().getTime()
+    if(!gTimerInterval){
+        gTimerInterval = setInterval(() => {
+            var currTime = new Date().getTime()
+            var time = currTime - startTime
+            elTimer.innerHTML = `${time}`
+            
+        }, 200)
+    }
+    
+    
 }
 
 
