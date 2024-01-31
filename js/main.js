@@ -21,6 +21,8 @@ function storeSettings(){
 }
 
 function onBallClick(elBall, maxDiameter, elBallClass){
+    const elUndoBtn = document.querySelector('.undoBtn')
+    elUndoBtn.classList.remove('hide')
 
     gPrevious = storeSettings()
     console.log('gPrevious:', gPrevious)
@@ -126,7 +128,7 @@ function reset(){
     gCurr = storeSettings()
 
     changeBackgroundColor(gBackgroundColor)
-    
+
     const elBall1 = document.querySelector('.ball1')
     changeBall(elBall1, gBall1Color, gBall1Diameter)
 
@@ -170,7 +172,11 @@ function clearIntervalBalls(){
     gInterval = 1
 }
 
-function undo(elUndo){
+function undo(elUndoBtn){
+
+    elUndoBtn.classList.add('hide')
+    const elRedoBtn = document.querySelector('.redoBtn')
+    elRedoBtn.classList.remove('hide')
 
     const elBall1 = document.querySelector('.ball1')
     var elBall = elBall1
