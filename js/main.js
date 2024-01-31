@@ -22,7 +22,6 @@ function storeSettings(){
 
 function onBallClick(elBall, maxDiameter, elBallClass){
 
-
     const elUndoBtn = document.querySelector('.undoBtn')
     const elRedoBtn = document.querySelector('.redoBtn')
 
@@ -222,10 +221,6 @@ function undo(){
 
     console.log('gPrevious:', gPrevious)
     console.log('gCurr:', gCurr)
-}
-
-function redo(){
-    undo()
 }
 
 
