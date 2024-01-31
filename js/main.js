@@ -7,7 +7,6 @@ var gBall2Color = 'rgb(136, 225, 237)'
 var gBackgroundColor = 'black'
 var gInterval = 0
 var gMove = 0
-
 var gHistory = {
     move: [0],
     ball1Diameter: [100],
@@ -70,7 +69,6 @@ function onBallClick(elBall, maxDiameter, elBallClass){
 }
 
 function swapBalls(){
-    
     const elBall1 = document.querySelector('.ball1')
     changeBall(elBall1, gBall2Color, gBall2Diameter)
     
@@ -88,9 +86,7 @@ function swapBalls(){
     gBall2Diameter = ball1Diameter
 }
 
-
 function changeBall(elBall, ballColor, diameter){
-    
     elBall.style.height = `${diameter}px`
     elBall.style.width = `${diameter}px`
     elBall.innerHTML=`${diameter}`
@@ -101,9 +97,7 @@ function changeBackgroundColor(color){
     const elBody = document.querySelector('body')
     elBody.style.backgroundColor = `${color}`
     gBackgroundColor = color
-
 }
-
 
 function reduceBalls1And2(incrementSize){
     gBall1Diameter -= incrementSize
@@ -126,7 +120,6 @@ function reset(){
     const elRedoBtn = document.querySelector('.redoBtn')
     if(!elRedoBtn.classList.contains('hide'))elRedoBtn.classList.add('hide')
 
-
     gBall1Diameter = 100
     gBall2Diameter = 100
     gBall1Color = 'bisque'
@@ -142,7 +135,6 @@ function reset(){
         backgroundColor: ['black'],
     }
 
-  
     changeBackgroundColor(gBackgroundColor)
 
     const elBall1 = document.querySelector('.ball1')
@@ -161,11 +153,9 @@ function ballParty(){
     const elBall4 = document.querySelector('.ball4')
 
     const startTime = new Date().getTime()
-    console.log(gInterval)
-
+   
     setTimeout( () => {
         if(!gInterval) {
-
             gInterval = setInterval(() => {
                 console.log(gInterval)
                 onBallClick(elBall1, 400, 'ball1')
@@ -178,9 +168,7 @@ function ballParty(){
             
             }, 2000)
         }
-
     }, 2000)
-
 }
 
 function clearIntervalBalls(){
