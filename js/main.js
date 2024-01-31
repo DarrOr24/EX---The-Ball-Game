@@ -116,6 +116,8 @@ function reset(){
     const elRedoBtn = document.querySelector('.redoBtn')
     if(!elRedoBtn.classList.contains('hide'))elRedoBtn.classList.add('hide')
 
+    gMove = 0
+    setCounter()
     gBall1Diameter = 100
     gBall2Diameter = 100
     gBall1Color = 'bisque'
@@ -153,7 +155,6 @@ function ballParty(){
     setTimeout( () => {
         if(!gInterval) {
             gInterval = setInterval(() => {
-                console.log(gInterval)
                 onBallClick(elBall1, 400, 'ball1')
                 onBallClick(elBall2, 500, 'ball2')
                 onBallClick(elBall3, 100, 'ball3')
