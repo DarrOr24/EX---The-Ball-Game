@@ -30,11 +30,11 @@ function storeSettings(){
 function onBallClick(elBall, maxDiameter, elBallClass){
     gMove++
 
-    const elUndoBtn = document.querySelector('.undoBtn')
-    const elRedoBtn = document.querySelector('.redoBtn')
+    // const elUndoBtn = document.querySelector('.undoBtn')
+    // const elRedoBtn = document.querySelector('.redoBtn')
 
-    if(elUndoBtn.classList.contains('hide') ) elUndoBtn.classList.remove('hide')
-    if(elRedoBtn.classList.contains('hide') ) elRedoBtn.classList.remove('hide')
+    // if(elUndoBtn.classList.contains('hide') ) elUndoBtn.classList.remove('hide')
+    // if(elRedoBtn.classList.contains('hide') ) elRedoBtn.classList.remove('hide')
 
     const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
