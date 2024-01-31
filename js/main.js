@@ -6,9 +6,8 @@ var gBall1Color = 'bisque'
 var gBall2Color = 'rgb(136, 225, 237)'
 var gBackgroundColor = 'black'
 var gInterval = 0
+var gMove = 0
 
-var gPrevious = {}
-var gCurr = {}
 var gHistory = {
     move: [0],
     ball1Diameter: [100],
@@ -20,32 +19,23 @@ var gHistory = {
 
 
 function storeSettings(){
-    return {
-        ball1Diameter: gBall1Diameter,
-        ball2Diameter: gBall2Diameter,
-        ball1Color: gBall1Color,
-        ball2Color: gBall2Color,
-        backgroundColor: gBackgroundColor,
-    }
+    gHistory.move.push(gMove)
+    gHistory.ball1Diameter.push(gBall1Diameter)
+    gHistory.ball2Diameter.push(gBall2Diameter)
+    gHistory.ball1Color.push(gBall1Color)
+    gHistory.ball2Color.push(gBall2Color)
+    gHistory.backgroundColor.push(gBackgroundColor)
 }
 
+
 function onBallClick(elBall, maxDiameter, elBallClass){
+    gMove++
 
     const elUndoBtn = document.querySelector('.undoBtn')
     const elRedoBtn = document.querySelector('.redoBtn')
 
-    if(elUndoBtn.classList.contains('hide') && elRedoBtn.classList.contains('hide') ) elUndoBtn.classList.remove('hide')
-    else if(elUndoBtn.classList.contains('hide') ) {
-        elUndoBtn.classList.remove('hide')
-        elRedoBtn.classList.add('hide')
-    }
-    else {
-        elRedoBtn.classList.remove('hide')
-        elUndoBtn.classList.add('hide')
-    }
-
-    gPrevious = storeSettings()
-    console.log('gPrevious:', gPrevious)
+    if(elUndoBtn.classList.contains('hide') ) elUndoBtn.classList.remove('hide')
+    if(elRedoBtn.classList.contains('hide') ) elRedoBtn.classList.remove('hide')
 
     const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
@@ -195,41 +185,8 @@ function clearIntervalBalls(){
 }
 
 function undo(){
-    const elUndoBtn = document.querySelector('.undoBtn')
-    if(elUndoBtn.classList.contains('hide'))elUndoBtn.classList.remove('hide')
-    else elUndoBtn.classList.add('hide')
-
-    const elRedoBtn = document.querySelector('.redoBtn')
-    if(elRedoBtn.classList.contains('hide'))elRedoBtn.classList.remove('hide')
-    else elRedoBtn.classList.add('hide')
     
 
-    const elBall1 = document.querySelector('.ball1')
-    var elBall = elBall1
-    var ballColor = gPrevious.ball1Color
-    var diameter = gPrevious.ball1Diameter
-    changeBall(elBall, ballColor, diameter)
-
-    gBall1Diameter = gPrevious.ball1Diameter
-    gBall1Color = gPrevious.ball1Color
-    
-    const elBall2 = document.querySelector('.ball2')
-    elBall = elBall2
-    ballColor = gPrevious.ball2Color
-    diameter = gPrevious.ball2Diameter
-    changeBall(elBall, ballColor, diameter)
-    
-    gBall2Diameter = gPrevious.ball2Diameter
-    gBall2Color = gPrevious.ball2Color
-
-    const backGroundColor = gPrevious.backgroundColor
-    changeBackgroundColor(backGroundColor)
-
-    gPrevious = gCurr
-    gCurr = storeSettings()
-
-    console.log('gPrevious:', gPrevious)
-    console.log('gCurr:', gCurr)
 }
 
 
