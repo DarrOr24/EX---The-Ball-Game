@@ -52,7 +52,7 @@ button:hover{
 .counter, .timer{
     background-color:bisque;
     border-radius: 10%;
-    width: 20px;
+    width: 50px;
     font-size: 22px;
     font-weight: bold;
 }

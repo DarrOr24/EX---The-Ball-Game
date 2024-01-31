@@ -217,12 +217,11 @@ function setTimer(){
         gTimerInterval = setInterval(() => {
             var currTime = new Date().getTime()
             var time = currTime - startTime
-            elTimer.innerHTML = `${time}`
+            elTimer.innerHTML = `${(time/1000).toFixed(1)}`
             
         }, 200)
     }
-    
-    
+      
 }
 
 
