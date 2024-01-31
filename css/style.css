@@ -7,9 +7,9 @@ body {
 header {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
     grid-template-areas:"h1 undo redo move    timer-title"
-                        "h1 undo redo counter timer";
+                        "h2 h2 h2 counter timer";
     place-items: center;
     place-content: center;
 }
@@ -65,6 +65,10 @@ button:hover{
 
 h1 {
     grid-area: h1;
+    color: white;
+}
+h2 {
+    grid-area: h2;
     color: white;
 }
 

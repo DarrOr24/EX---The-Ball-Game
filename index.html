@@ -9,6 +9,7 @@
 <body>
     <header>
         <h1>The Ball Game</h1>
+        <h2>Click on the ball and see what happens</h2>
         <button class="button undoBtn" onclick="undo()">↩️</button>
         <button class="button redoBtn" onclick="redo()">↪️</button>
         <section class="counter">0</section>
@@ -23,7 +24,7 @@
         <div class="ball ball3" onclick="onBallClick(this, 100, 'ball3')">Ball3</div>
         <div class="ball ball4" onclick="onBallClick(this, 100, 'ball4')">Ball4</div>
         <div class="ball ball5" onclick="onBallClick(this, 100, 'ball5')">Ball5</div>
-        <div class="ball ball6" onclick="reset()" onmouseover="ballParty()" onmouseout="clearIntervalBalls()">Ball6</div>
+        <div class="ball ball6" onclick="reset()" onmouseover="ballParty()" onmouseout="clearIntervalBalls()">Reset</div>
     </div>
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
