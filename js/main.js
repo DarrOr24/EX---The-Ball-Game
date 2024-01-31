@@ -30,7 +30,7 @@ function onBallClick(elBall, maxDiameter, elBallClass){
     setTimer()
     gMove++
     setCounter()
-    
+
     const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
     
@@ -109,6 +109,7 @@ function reduceBalls1And2(incrementSize){
 
 function reset(){
     clearInterval(gTimerInterval)
+    clearInterval(gInterval)
     const elTimer = document.querySelector('.timer')
     elTimer.innerHTML = 0
 
@@ -118,6 +119,7 @@ function reset(){
     const elRedoBtn = document.querySelector('.redoBtn')
     if(!elRedoBtn.classList.contains('hide'))elRedoBtn.classList.add('hide')
 
+    gInterval = 0
     gTimerInterval = 0
     gInterval = 0
     gMove = 0
