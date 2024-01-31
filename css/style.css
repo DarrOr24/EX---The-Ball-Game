@@ -10,6 +10,14 @@ header {
     place-content: center;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
+.hide{
+    display:none;
+}
+
 .grid-container{
     display: grid;
     grid-template-columns: 50vw 50vw;
