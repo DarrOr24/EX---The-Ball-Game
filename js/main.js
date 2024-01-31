@@ -193,21 +193,7 @@ function undo(){
     if(gMove === 0) return
     gMove--
 
-    gBall1Diameter = gHistory.ball1Diameter[gMove]
-    gBall2Diameter = gHistory.ball2Diameter[gMove]
-    
-    gBall1Color = gHistory.ball1Color[gMove]
-    gBall2Color = gHistory.ball2Color[gMove]
-    gBackgroundColor = gHistory.backgroundColor[gMove]
-
-    changeBackgroundColor(gBackgroundColor)
-
-    const elBall1 = document.querySelector('.ball1')
-    changeBall(elBall1, gBall1Color, gBall1Diameter)
-
-    const elBall2 = document.querySelector('.ball2')
-    changeBall(elBall2, gBall2Color, gBall2Diameter)
-    
+    changeAll()
 
 }
 
@@ -215,6 +201,10 @@ function redo(){
     if(gMove === gHistory.move.length - 1) return
     gMove++
 
+    changeAll()
+}
+
+function changeAll(){
     gBall1Diameter = gHistory.ball1Diameter[gMove]
     gBall2Diameter = gHistory.ball2Diameter[gMove]
     
@@ -229,7 +219,6 @@ function redo(){
 
     const elBall2 = document.querySelector('.ball2')
     changeBall(elBall2, gBall2Color, gBall2Diameter)
-
 }
 
 
