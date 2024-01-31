@@ -32,9 +32,6 @@ function onBallClick(elBall, maxDiameter, elBallClass){
     
     if(elBallClass === 'ball5'){
         changeBackgroundColor(rndColor)
-        // const elBody = document.querySelector('body')
-        // elBody.style.backgroundColor = `${rndColor}`
-        // gBackgroundColor = rndColor
     }
 
     if(elBallClass === 'ball4'){
@@ -61,7 +58,6 @@ function onBallClick(elBall, maxDiameter, elBallClass){
 
     gCurr = storeSettings()
     console.log('gCurr:', gCurr)
-   
 }
 
 function swapBalls(){
@@ -98,7 +94,6 @@ function changeBackgroundColor(color){
     gBackgroundColor = color
 
 }
-
 
 
 function reduceBalls1And2(incrementSize){
