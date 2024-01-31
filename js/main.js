@@ -29,8 +29,8 @@ function storeSettings(){
 
 
 function onBallClick(elBall, maxDiameter, elBallClass){
+    setTimer()
     gMove++
-
     setCounter()
 
     const rndColor = getRandomColor()
@@ -111,12 +111,18 @@ function reduceBalls1And2(incrementSize){
 }
 
 function reset(){
+    clearInterval(gTimerInterval)
+    const elTimer = document.querySelector('.timer')
+    elTimer.innerHTML = 0
+
     const elUndoBtn = document.querySelector('.undoBtn')
     if(!elUndoBtn.classList.contains('hide'))elUndoBtn.classList.add('hide')
 
     const elRedoBtn = document.querySelector('.redoBtn')
     if(!elRedoBtn.classList.contains('hide'))elRedoBtn.classList.add('hide')
 
+    gTimerInterval = 0
+    gInterval = 0
     gMove = 0
     setCounter()
     gBall1Diameter = 100
@@ -211,17 +217,16 @@ function setCounter(){
 }
 
 function setTimer(){
+    if(gTimerInterval) return
     const elTimer = document.querySelector('.timer')
     const startTime = new Date().getTime()
-    if(!gTimerInterval){
-        gTimerInterval = setInterval(() => {
-            var currTime = new Date().getTime()
-            var time = currTime - startTime
-            elTimer.innerHTML = `${(time/1000).toFixed(1)}`
+    
+    gTimerInterval = setInterval(() => {
+        var currTime = new Date().getTime()
+        var time = currTime - startTime
+        elTimer.innerHTML = `${(time/1000).toFixed(1)}`
             
-        }, 200)
-    }
-      
+    }, 200)     
 }
 
 
