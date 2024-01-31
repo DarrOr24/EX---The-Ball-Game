@@ -29,9 +29,10 @@ function onBallClick(elBall, maxDiameter, elBallClass){
     const incrementSize = getRandomInt(20, 61)
     
     if(elBallClass === 'ball5'){
-        const elBody = document.querySelector('body')
-        elBody.style.backgroundColor = `${rndColor}`
-        gBackgroundColor = rndColor
+        changeBackgroundColor(rndColor)
+        // const elBody = document.querySelector('body')
+        // elBody.style.backgroundColor = `${rndColor}`
+        // gBackgroundColor = rndColor
     }
 
     if(elBallClass === 'ball4'){
@@ -89,6 +90,14 @@ function changeBall(elBall, ballColor, diameter){
     elBall.style.backgroundColor = `${ballColor}`
 }
 
+function changeBackgroundColor(color){
+    const elBody = document.querySelector('body')
+    elBody.style.backgroundColor = `${color}`
+    gBackgroundColor = color
+
+}
+
+
 
 function reduceBalls1And2(incrementSize){
     gBall1Diameter -= incrementSize
@@ -116,9 +125,8 @@ function reset(){
 
     gCurr = storeSettings()
 
-    const elBody = document.querySelector('body')
-    elBody.style.backgroundColor = gBackgroundColor
-
+    changeBackgroundColor(gBackgroundColor)
+    
     const elBall1 = document.querySelector('.ball1')
     changeBall(elBall1, gBall1Color, gBall1Diameter)
 
@@ -161,6 +169,35 @@ function clearIntervalBalls(){
     clearInterval(gInterval)
     gInterval = 1
 }
+
+function undo(elUndo){
+
+    const elBall1 = document.querySelector('.ball1')
+    var elBall = elBall1
+    var ballColor = gPrevious.ball1Color
+    var diameter = gPrevious.ball1Diameter
+    changeBall(elBall, ballColor, diameter)
+
+    gBall1Diameter = gPrevious.ball1Diameter
+    gBall1Color = gPrevious.ball1Color
+    
+    const elBall2 = document.querySelector('.ball2')
+    elBall = elBall2
+    ballColor = gPrevious.ball2Color
+    diameter = gPrevious.ball2Diameter
+    changeBall(elBall, ballColor, diameter)
+    
+    gBall2Diameter = gPrevious.ball2Diameter
+    gBall2Color = gPrevious.ball2Color
+
+    const backGroundColor = gPrevious.backgroundColor
+    changeBackgroundColor(backGroundColor)
+    gCurr = storeSettings()
+
+    console.log('gPrevious:', gPrevious)
+    console.log('gCurr:', gCurr)
+}
+
 
 
 
