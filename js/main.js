@@ -129,7 +129,6 @@ function reset(){
 
     gBall1Diameter = 100
     gBall2Diameter = 100
-    gBall1Diameter = 100
     gBall1Color = 'bisque'
     gBall2Color = 'rgb(136, 225, 237)'
     gBackgroundColor = 'black'
@@ -190,11 +189,46 @@ function clearIntervalBalls(){
 }
 
 function undo(){
+
+    if(gMove === 0) return
+    gMove--
+
+    gBall1Diameter = gHistory.ball1Diameter[gMove]
+    gBall2Diameter = gHistory.ball2Diameter[gMove]
+    
+    gBall1Color = gHistory.ball1Color[gMove]
+    gBall2Color = gHistory.ball2Color[gMove]
+    gBackgroundColor = gHistory.backgroundColor[gMove]
+
+    changeBackgroundColor(gBackgroundColor)
+
+    const elBall1 = document.querySelector('.ball1')
+    changeBall(elBall1, gBall1Color, gBall1Diameter)
+
+    const elBall2 = document.querySelector('.ball2')
+    changeBall(elBall2, gBall2Color, gBall2Diameter)
     
 
 }
+
 function redo(){
+    if(gMove === gHistory.move.length - 1) return
+    gMove++
+
+    gBall1Diameter = gHistory.ball1Diameter[gMove]
+    gBall2Diameter = gHistory.ball2Diameter[gMove]
     
+    gBall1Color = gHistory.ball1Color[gMove]
+    gBall2Color = gHistory.ball2Color[gMove]
+    gBackgroundColor = gHistory.backgroundColor[gMove]
+
+    changeBackgroundColor(gBackgroundColor)
+
+    const elBall1 = document.querySelector('.ball1')
+    changeBall(elBall1, gBall1Color, gBall1Diameter)
+
+    const elBall2 = document.querySelector('.ball2')
+    changeBall(elBall2, gBall2Color, gBall2Diameter)
 
 }
 
