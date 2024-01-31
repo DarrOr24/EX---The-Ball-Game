@@ -67,6 +67,7 @@ h1 {
     grid-area: h1;
     color: white;
 }
+
 h2 {
     grid-area: h2;
     color: white;
@@ -90,14 +91,12 @@ h2 {
     cursor: pointer;
 }
 
-
 .ball1{
     background-color: bisque;
 }
 
 .ball2 {
     background-color: rgb(136, 225, 237);
-
 }
 
 .ball3 {
@@ -114,5 +113,4 @@ h2 {
 
 .ball6 {
     background-color: rgb(201, 162, 194);
- 
 }

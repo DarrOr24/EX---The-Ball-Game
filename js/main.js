@@ -17,7 +17,6 @@ var gHistory = {
     backgroundColor: ['black'],
 }
 
-
 function storeSettings(){
     gHistory.move.push(gMove)
     gHistory.ball1Diameter.push(gBall1Diameter)
@@ -27,12 +26,11 @@ function storeSettings(){
     gHistory.backgroundColor.push(gBackgroundColor)
 }
 
-
 function onBallClick(elBall, maxDiameter, elBallClass){
     setTimer()
     gMove++
     setCounter()
-
+    
     const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
     
@@ -61,7 +59,6 @@ function onBallClick(elBall, maxDiameter, elBallClass){
         if(gBall2Diameter > maxDiameter) gBall2Diameter = 100
         changeBall(elBall, rndColor, gBall2Diameter)
     }
-
     storeSettings()  
 }
 
