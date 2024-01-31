@@ -21,8 +21,20 @@ function storeSettings(){
 }
 
 function onBallClick(elBall, maxDiameter, elBallClass){
+
+
     const elUndoBtn = document.querySelector('.undoBtn')
-    elUndoBtn.classList.remove('hide')
+    const elRedoBtn = document.querySelector('.redoBtn')
+
+    if(elUndoBtn.classList.contains('hide') && elRedoBtn.classList.contains('hide') ) elUndoBtn.classList.remove('hide')
+    else if(elUndoBtn.classList.contains('hide') ) {
+        elUndoBtn.classList.remove('hide')
+        elRedoBtn.classList.add('hide')
+    }
+    else {
+        elRedoBtn.classList.remove('hide')
+        elUndoBtn.classList.add('hide')
+    }
 
     gPrevious = storeSettings()
     console.log('gPrevious:', gPrevious)
@@ -111,6 +123,13 @@ function reduceBalls1And2(incrementSize){
 }
 
 function reset(){
+    const elUndoBtn = document.querySelector('.undoBtn')
+    if(!elUndoBtn.classList.contains('hide'))elUndoBtn.classList.add('hide')
+
+    const elRedoBtn = document.querySelector('.redoBtn')
+    if(!elRedoBtn.classList.contains('hide'))elRedoBtn.classList.add('hide')
+
+
     gPrevious = storeSettings()
     
     gBall1Diameter = 100
@@ -175,7 +194,7 @@ function undo(){
     const elRedoBtn = document.querySelector('.redoBtn')
     if(elRedoBtn.classList.contains('hide'))elRedoBtn.classList.remove('hide')
     else elRedoBtn.classList.add('hide')
-    // elRedoBtn.classList.remove('hide')
+    
 
     const elBall1 = document.querySelector('.ball1')
     var elBall = elBall1
