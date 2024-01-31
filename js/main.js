@@ -193,10 +193,49 @@ function undo(elUndoBtn){
 
     const backGroundColor = gPrevious.backgroundColor
     changeBackgroundColor(backGroundColor)
+
+    gPrevious = gCurr
+    gCurr = storeSettings()
+
+    
+
+    console.log('gPrevious:', gPrevious)
+    console.log('gCurr:', gCurr)
+}
+
+function redo(elRedoBtn){
+
+    elRedoBtn.classList.add('hide')
+    const elUndoBtn = document.querySelector('.undoBtn')
+    elUndoBtn.classList.remove('hide')
+
+    const elBall1 = document.querySelector('.ball1')
+    var elBall = elBall1
+    var ballColor = gPrevious.ball1Color
+    var diameter = gPrevious.ball1Diameter
+    changeBall(elBall, ballColor, diameter)
+
+    gBall1Diameter = gPrevious.ball1Diameter
+    gBall1Color = gPrevious.ball1Color
+    
+    const elBall2 = document.querySelector('.ball2')
+    elBall = elBall2
+    ballColor = gPrevious.ball2Color
+    diameter = gPrevious.ball2Diameter
+    changeBall(elBall, ballColor, diameter)
+    
+    gBall2Diameter = gPrevious.ball2Diameter
+    gBall2Color = gPrevious.ball2Color
+
+    const backGroundColor = gPrevious.backgroundColor
+    changeBackgroundColor(backGroundColor)
+
+    gPrevious = gCurr
     gCurr = storeSettings()
 
     console.log('gPrevious:', gPrevious)
     console.log('gCurr:', gCurr)
+
 }
 
 
