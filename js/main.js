@@ -9,6 +9,15 @@ var gInterval = 0
 
 var gPrevious = {}
 var gCurr = {}
+var gHistory = {
+    move: [0],
+    ball1Diameter: [100],
+    ball2Diameter: [100],
+    ball1Color: ['bisque'],
+    ball2Color: ['rgb(136, 225, 237)'],
+    backgroundColor: ['black'],
+}
+
 
 function storeSettings(){
     return {
