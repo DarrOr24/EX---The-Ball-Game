@@ -30,11 +30,7 @@ function storeSettings(){
 function onBallClick(elBall, maxDiameter, elBallClass){
     gMove++
 
-    // const elUndoBtn = document.querySelector('.undoBtn')
-    // const elRedoBtn = document.querySelector('.redoBtn')
-
-    // if(elUndoBtn.classList.contains('hide') ) elUndoBtn.classList.remove('hide')
-    // if(elRedoBtn.classList.contains('hide') ) elRedoBtn.classList.remove('hide')
+    setCounter()
 
     const rndColor = getRandomColor()
     const incrementSize = getRandomInt(20, 61)
@@ -179,12 +175,14 @@ function clearIntervalBalls(){
 function undo(){
     if(gMove === 0) return
     gMove--
+    setCounter()
     changeAll()
 }
 
 function redo(){
     if(gMove === gHistory.move.length - 1) return
     gMove++
+    setCounter()
     changeAll()
 }
 
@@ -203,6 +201,11 @@ function changeAll(){
 
     const elBall2 = document.querySelector('.ball2')
     changeBall(elBall2, gBall2Color, gBall2Diameter)
+}
+
+function setCounter(){
+    const elCounter = document.querySelector('.counter')
+    elCounter.innerHTML= `${gMove}`
 }
 
 
