@@ -8,7 +8,7 @@ header {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 2fr;
-    grid-template-areas:"h1 . . move timer-title"
+    grid-template-areas:"h1 undo redo move    timer-title"
                         "h1 undo redo counter timer";
     place-items: center;
     place-content: center;
@@ -44,6 +44,7 @@ button:hover{
 .counter-title{
     grid-area:move;
 }
+
 .timer-title{
     grid-area:timer-title;
 }
