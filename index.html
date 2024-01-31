@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>The Ball Game</h1>
+    <header>
+        <h1>The Ball Game</h1>
+        <button class="button button1" onclick="undo()">↩️</button>
+        <button class="button button2" onclick="redo()">↪️</button>
+    </header>
+    
     <div class="grid-container">
         <div class="ball ball1" onclick="onBallClick(this, 400, 'ball1')">100</div>
         <div class="ball ball2" onclick="onBallClick(this, 500, 'ball2')">100</div>
